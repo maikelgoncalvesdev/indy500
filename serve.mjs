@@ -33,5 +33,5 @@ http.createServer((req, res) => {
     res.end(data);
   });
 }).listen(PORT, () => {
-  console.log(`Indy 500 rodando em http://localhost:${PORT}`);
+  console.log(`Indy rodando em http://localhost:${PORT}`);
 });
