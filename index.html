@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Indy 500 — 3D</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <div id="hud">
+    <div class="panel panel-tl">
+      <div class="row"><span class="label">VOLTA</span><span id="lap" class="value">1/3</span></div>
+      <div class="row"><span class="label">POS</span><span id="pos" class="value">1/2</span></div>
+    </div>
+
+    <div class="panel panel-tr">
+      <div class="row"><span class="label">TEMPO</span><span id="time" class="value">0:00.00</span></div>
+      <div class="row"><span class="label">MELHOR</span><span id="best" class="value">--:--.--</span></div>
+      <div class="row"><span class="label">GAP</span><span id="gap" class="value">--</span></div>
+    </div>
+
+    <div class="panel panel-bl">
+      <div id="speed"><span id="speed-value">0</span><span class="unit">km/h</span></div>
+      <div id="gear-bar"><i></i></div>
+    </div>
+
+    <div class="panel panel-br">
+      <canvas id="minimap" width="200" height="118"></canvas>
+    </div>
+
+    <div id="center" class="hidden"><div id="center-big"></div><div id="center-sub"></div></div>
+
+    <!-- Menu inicial e pódio são a mesma tela -->
+    <div id="screen">
+      <h1 id="screen-title">INDY 500</h1>
+      <p id="screen-sub"></p>
+      <div id="podium" class="hidden"></div>
+      <table id="standings" class="hidden"></table>
+      <div id="controls">
+        <div><kbd>↑</kbd><kbd>W</kbd><span>acelerar</span></div>
+        <div><kbd>↓</kbd><kbd>S</kbd><span>frear / ré</span></div>
+        <div><kbd>←</kbd><kbd>→</kbd><span>dirigir</span></div>
+        <div><kbd>Espaço</kbd><span>freio de mão</span></div>
+        <div><kbd>C</kbd><span>trocar câmera</span></div>
+        <div><kbd>M</kbd><span>ligar/desligar som</span></div>
+        <div><kbd>R</kbd><span>reiniciar a prova</span></div>
+        <div><kbd>Enter</kbd><span>pausar / continuar</span></div>
+      </div>
+      <button id="start-btn">CORRER</button>
+      <p class="hint"><kbd>Enter</kbd> ou <kbd>R</kbd> para largar</p>
+    </div>
+
+    <div id="help">
+      <kbd>↑</kbd>/<kbd>W</kbd> acelera &nbsp; <kbd>↓</kbd>/<kbd>S</kbd> freia/ré &nbsp;
+      <kbd>←</kbd><kbd>→</kbd> dirige &nbsp; <kbd>Espaço</kbd> freio de mão &nbsp;
+      <kbd>C</kbd> câmera &nbsp; <kbd>M</kbd> som &nbsp; <kbd>R</kbd> reinicia &nbsp; <kbd>Enter</kbd> pausa
+    </div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
